@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Poppins"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css" />
+  <script src="static/bootstrap/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-color: #f1f1f1;
+    }
+
+    #regForm {
+      margin: 50px auto;
+      font-family: Poppins;
+      padding: 40px;
+      width: 70%;
+      min-width: 300px;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    :focus {
+      outline: none;
+    }
+
+    .content {
+      width: 100%;
+      position: relative;
+    }
+
+    .input {
+      width: 100%;
+      border: 0;
+      padding: 10px 10px;
+      border-bottom: 1px solid #929fba;
+      background-color: transparent;
+    }
+
+    .input ~ .border {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+    }
+
+    .input:focus ~ .border {
+      width: 100%;
+      transition: 0.5s;
+    }
+
+    .container {
+      border: 0.5px solid;
+      padding-bottom: 40px;
+    }
+
+    .border {
+      border: 1px solid #4285f4 !important;
+    }
+
+    input.invalid {
+      background-color: #ffdddd;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    button {
+      background-color: #04aa6d;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    #prevBtn {
+      background-color: #bbbbbb;
+    }
+
+    .step {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbbbbb;
+      border: none;
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 0.5;
+    }
+
+    .step.active {
+      opacity: 1;
+    }
+
+    .step.finish {
+      background-color: #04aa6d;
+    }
+  </style>
+  <body>
+    <form id="regForm" action="/diagnosa" method="POST">
+      <h1 class="mt-5 fw-bold text-center">Aplikasi Sistem Diagnosa Jantung</h1>
+    <h5 class="text-center">Metodelogi Data Science</h5>
+    <h5 class="mb-5 text-center">672019014 - 672019023 - 672019152</h5>
+      <!-- One "tab" for each step in the form: -->
+      <div class="tab">
+        <p class="content">
+          <input
+            class="input"
+            id="form-one"
+            placeholder="Full Name"
+            name="name"
+            type="text"
+          />
+          <span class="border"></span>
+        </p>
+        <p class="content">
+          <select class="input" id="form-one" name="sex">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+          <span class="border"></span>
+        </p>
+        <p class="content">
+          <input
+            class="input"
+            id="form-one"
+            placeholder="Age (in years)"
+            name="age"
+            type="number"
+          />
+          <span class="border"></span>
+        </p>
+      </div>
+      <div class="tab">
+        <p class="content">
+          <input
+            class="input"
+            id="form-one"
+            placeholder="Resting Blood Pressure (in mm Hg)"
+            name="trestbps"
+            type="number"
+          />
+          <span class="border"></span>
+        </p>
+        <p class="content">
+          <input
+            class="input"
+            id="form-one"
+            placeholder="Thalium Stress Result (1-7)"
+            name="thal"
+            type="number"
+          />
+          <span class="border"></span>
+        </p>
+        <p class="content">
+          <input
+            class="input"
+            id="form-one"
+            placeholder="Serum Cholestoral"
+            name="chol"
+            type="number"
+          />
+          <span class="border"></span>
+        </p>
+        <p class="content">
+          <input
+            class="input"
+            id="form-one"
+            placeholder="Fasting Blood Sugar"
+            name="fbs"
+            type="number"
+          />
+          <span class="border"></span>
+        </p>
+      </div>
+      <div class="tab">
+        <p class="content">
+          <p class="content">
+            <input
+              class="input"
+              id="form-one"
+              placeholder="Maximum Heart Rate Achieved"
+              name="thalach"
+              type="number"
+            />
+            <span class="border"></span>
+          </p>
+          <div class="row align-items-center">
+            <h5 class="col-md-2">Chest Pain Type</h5>
+            <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="cp" id="cp1" value="0" autocomplete="off" checked>
+              <label class="btn btn-outline-primary px-4" for="cp1" >Typical angina</label>
+            
+              <input type="radio" class="btn-check" name="cp" id="cp2" autocomplete="off" value="1">
+              <label class="btn btn-outline-primary px-4" for="cp2">Atypical angina</label>
+
+              <input type="radio" class="btn-check" name="cp" id="cp3" autocomplete="off" value="2">
+              <label class="btn btn-outline-primary px-4" for="cp3">Non-anginal pain</label>
+
+              <input type="radio" class="btn-check" name="cp" id="cp4" autocomplete="off" value="3">
+              <label class="btn btn-outline-primary px-4" for="cp4">Asymptomatic</label>
+            </div>
+          </div>
+        </p>
+        <p class="content">
+          <div class="row align-items-center">
+            <h5 class="col-md-2">Resting Electrocardiographic Result</h5>
+            <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="restecg" id="restecg1" value="0" autocomplete="off" checked>
+              <label class="btn btn-outline-primary px-4" for="restecg1" >0 - Nothing to note</label>
+            
+              <input type="radio" class="btn-check" name="restecg" id="restecg2" value="1" autocomplete="off">
+              <label class="btn btn-outline-primary px-4" for="restecg2" >1 - ST-T Wave Abnormality</label>
+
+              <input type="radio" class="btn-check" name="restecg" id="restecg3" value="2" autocomplete="off">
+              <label class="btn btn-outline-primary px-4" for="restecg3" >2 - Possible or definite left ventricular hypertrophy</label>
+            </div>
+          </div>
+        </p>
+        <p class="content">
+          <div class="row align-items-center">
+            <h5 class="col-md-2">Exercise Induced Angina</h5>
+            <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="exang" id="exang1"  value="1" autocomplete="off" checked>
+              <label class="btn btn-outline-primary px-4" for="exang1" >Yes</label>
+            
+              <input type="radio" class="btn-check" name="exang" id="exang2" value="0" autocomplete="off">
+              <label class="btn btn-outline-primary px-4" for="exang2">No</label>
+            </div>
+          </div>
+        </p>
+      </div>
+      <div class="tab">
+        <p class="content">
+          <input
+            class="input"
+            id="form-one"
+            placeholder="ST Depression Induced by Exercise (eg. 0,5)"
+            name="oldpeak"
+            type="number"
+            step="0.1"
+          />
+          <span class="border"></span>
+        </p>
+        <p class="content">
+          <div class="row align-items-center">
+            <h5 class="col-md-2">Slope</h5>
+            <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="slope" id="slope1" value="0" autocomplete="off" checked>
+              <label class="btn btn-outline-primary px-4" for="slope1" >Upsloping</label>
+            
+              <input type="radio" class="btn-check" name="slope" id="slope2" autocomplete="off" value="1">
+              <label class="btn btn-outline-primary px-4" for="slope2">Flatsloping</label>
+
+              <input type="radio" class="btn-check" name="slope" id="slope3" autocomplete="off" value="2">
+              <label class="btn btn-outline-primary px-4" for="slope3">Downslopins</label>
+            </div>
+          </div>
+        </p>
+        <p class="content">
+          <div class="row align-items-center">
+            <h5 class="col-md-2">Major Vessels</h5>
+            <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="ca" id="ca1" value="0" autocomplete="off" checked>
+              <label class="btn btn-outline-primary px-4" for="ca1" >0</label>
+            
+              <input type="radio" class="btn-check" name="ca" id="ca2" value="1" autocomplete="off">
+              <label class="btn btn-outline-primary px-4" for="ca2" >1</label>
+
+              <input type="radio" class="btn-check" name="ca" id="ca2" value="2" autocomplete="off">
+              <label class="btn btn-outline-primary px-4" for="ca2" >2</label>
+            </div>
+          </div>
+        </p>
+      </div>
+      
+      <div style="overflow: auto">
+        <div style="float: right">
+          <button type="button" id="prevBtn" onclick="nextPrev(-1)">
+            Previous
+          </button>
+          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 40px">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+      </div>
+    </form>
+
+    <script>
+      var currentTab = 0; 
+      showTab(currentTab); 
+
+      function showTab(n) {
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        if (n == 0) {
+          document.getElementById("prevBtn").style.display = "none";
+        } else {
+          document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == x.length - 1) {
+          document.getElementById("nextBtn").innerHTML = "Submit";
+        } else {
+          document.getElementById("nextBtn").innerHTML = "Next";
+        }
+        fixStepIndicator(n);
+      }
+
+      function nextPrev(n) {
+        var x = document.getElementsByClassName("tab");
+        if (n == 1 && !validateForm()) return false;
+        x[currentTab].style.display = "none";
+        currentTab = currentTab + n;
+        if (currentTab >= x.length) {
+          document.getElementById("regForm").submit();
+          return false;
+        }
+        showTab(currentTab);
+      }
+
+      function validateForm() {
+        var x,
+          y,
+          i,
+          valid = true;
+        x = document.getElementsByClassName("tab");
+        y = x[currentTab].getElementsByTagName("input");
+        z = x[currentTab].getElementsByTagName("select");
+        for (i = 0; i < y.length; i++) {
+          if (y[i].value == "") {
+            y[i].className += " invalid";
+            valid = false;
+          }
+        }
+
+        for (i = 0; i < z.length; i++) {
+          if (z[i].value == "") {
+            z[i].className += " invalid";
+            valid = false;
+          }
+        }
+        if (valid) {
+          document.getElementsByClassName("step")[currentTab].className +=
+            " finish";
+        }
+        return valid;
+      }
+
+      function fixStepIndicator(n) {
+        var i,
+          x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+          x[i].className = x[i].className.replace(" active", "");
+        }
+        x[n].className += " active";
+      }
+    </script>
+  </body>
+</html>
