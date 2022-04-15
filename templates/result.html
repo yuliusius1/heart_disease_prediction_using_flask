@@ -6,6 +6,8 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css" />
+  <link rel="shortcut icon" href="static/images/favicon.ico" type="image/ico" />
+
   <script src="static/bootstrap/js/bootstrap.min.js"></script>
   <style>
     body {
@@ -103,8 +105,8 @@
     <h5>Metodelogi Data Science</h5>
     <h5 class="mb-5">672019014 - 672019023 - 672019152</h5>
     <h3 class="pt-2 text-center">
-      Berdasarkan data yang anda masukkan, Hasil prediksi penyakit jantung anda
-      yaitu
+      Hi {{ name }}, Berdasarkan data yang anda masukkan, Hasil prediksi
+      penyakit jantung anda yaitu
     </h3>
     <h2
       class="text-center {% if(result == 'Positif') %} text-danger {% else %} text-success {% endif %}"

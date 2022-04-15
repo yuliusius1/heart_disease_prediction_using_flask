@@ -11,11 +11,12 @@ app = Flask(__name__)
 model_file = open('model.pkl', 'rb')
 model = pickle.load(model_file, encoding='bytes')
 
-def count_bmi(weight,height):
-    return weight / (height / 100) ** 2
+@app.route('/')
+def index():
+    return render_template('landing.html')
 
 @app.route('/diagnosa', methods=['GET', 'POST'])
-def index():
+def diagnosa():
     if request.method == 'POST':
         name = request.form['name']
         age = request.form['age']
@@ -32,7 +33,6 @@ def index():
         ca = request.form['ca']
         thal = request.form['thal']
     
-
         data = [int(age), int(sex),int(cp),int(trestbps),int(chol),int(restecg),int(fbs),int(thalach),int(exang),float(oldpeak),int(slope),int(ca),int(thal)]
         # convert data to numpy array
         data_as_array = np.asarray(data)
@@ -43,12 +43,8 @@ def index():
             result = 'Negatif'
         else:
             result = 'Positif'
-        return render_template('result.html', data=data , result = result, prediction = prediction)
+        return render_template('result.html', result = result, name = name)
     return render_template('index.html')
-        
-@app.route('/')
-def landing():
-    return render_template('one-page.html')
         
 if __name__ == '__main__':
     app.run(host='localhost', port=5000, debug=True)

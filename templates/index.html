@@ -6,6 +6,11 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css" />
+  <link
+      rel="shortcut icon"
+      href="static/images/favicon.ico"
+      type="image/ico"
+    />
   <script src="static/bootstrap/js/bootstrap.min.js"></script>
   <style>
     body {
@@ -175,13 +180,10 @@
           <span class="border"></span>
         </p>
         <p class="content">
-          <input
-            class="input"
-            id="form-one"
-            placeholder="Fasting Blood Sugar"
-            name="fbs"
-            type="number"
-          />
+          <select class="input" id="form-one" name="fbs">
+            <option value="0">Blood Sugar 0 - 125</option>
+            <option value="0">Blood Sugar >= 126</option>
+          </select>
           <span class="border"></span>
         </p>
       </div>
@@ -199,7 +201,7 @@
           </p>
           <div class="row align-items-center">
             <h5 class="col-md-2">Chest Pain Type</h5>
-            <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+            <div class="btn-group col-md-10" role="group" aria-label="Basic radio toggle button group">
               <input type="radio" class="btn-check" name="cp" id="cp1" value="0" autocomplete="off" checked>
               <label class="btn btn-outline-primary px-4" for="cp1" >Typical angina</label>
             
@@ -217,7 +219,7 @@
         <p class="content">
           <div class="row align-items-center">
             <h5 class="col-md-2">Resting Electrocardiographic Result</h5>
-            <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+            <div class="btn-group col-md-10" role="group" aria-label="Basic radio toggle button group">
               <input type="radio" class="btn-check" name="restecg" id="restecg1" value="0" autocomplete="off" checked>
               <label class="btn btn-outline-primary px-4" for="restecg1" >0 - Nothing to note</label>
             
@@ -232,7 +234,7 @@
         <p class="content">
           <div class="row align-items-center">
             <h5 class="col-md-2">Exercise Induced Angina</h5>
-            <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+            <div class="btn-group col-md-10" role="group" aria-label="Basic radio toggle button group">
               <input type="radio" class="btn-check" name="exang" id="exang1"  value="1" autocomplete="off" checked>
               <label class="btn btn-outline-primary px-4" for="exang1" >Yes</label>
             
@@ -257,7 +259,7 @@
         <p class="content">
           <div class="row align-items-center">
             <h5 class="col-md-2">Slope</h5>
-            <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+            <div class="btn-group col-md-10" role="group" aria-label="Basic radio toggle button group">
               <input type="radio" class="btn-check" name="slope" id="slope1" value="0" autocomplete="off" checked>
               <label class="btn btn-outline-primary px-4" for="slope1" >Upsloping</label>
             
@@ -272,7 +274,7 @@
         <p class="content">
           <div class="row align-items-center">
             <h5 class="col-md-2">Major Vessels</h5>
-            <div class="btn-group col-md-3" role="group" aria-label="Basic radio toggle button group">
+            <div class="btn-group col-md-10" role="group" aria-label="Basic radio toggle button group">
               <input type="radio" class="btn-check" name="ca" id="ca1" value="0" autocomplete="off" checked>
               <label class="btn btn-outline-primary px-4" for="ca1" >0</label>
             
